@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Fantasy RPG Сеттинг</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'MedievalSharp', 'Cinzel', serif;
+      background: url('https://cdn.pixabay.com/photo/2021/03/14/07/55/fantasy-6092213_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: -1;
+    }
+
+    .sidebar {
+      width: 280px;
+      background-color: rgba(20, 20, 20, 0.95);
+      padding: 30px 20px;
+      border-right: 2px solid #600;
+      box-shadow: 2px 0 10px #300;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .sidebar h2 {
+      font-size: 26px;
+      color: #a00;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 18px;
+      transition: all 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      color: #f00;
+      padding-left: 10px;
+    }
+
+    .content {
+      flex: 1;
+      padding: 60px;
+      background: linear-gradient(to right, rgba(10,10,10,0.85), rgba(30,0,0,0.85));
+      box-shadow: inset 0 0 50px #300;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      border-bottom: 1px solid #400;
+      padding-bottom: 40px;
+      transition: transform 0.3s;
+    }
+
+    .section:hover {
+      transform: scale(1.01);
+    }
+
+    .section h1 {
+      font-size: 32px;
+      color: #c11;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #500;
+      padding-bottom: 10px;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .section p, .section ul {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .section ul {
+      margin-left: 20px;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      max-width: 500px;
+      height: 300px;
+      background-color: rgba(80, 0, 0, 0.3);
+      border: 2px dashed #800;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-style: italic;
+      font-size: 16px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #111;
+      padding: 30px;
+      border: 2px solid #700;
+      box-shadow: 0 0 20px #400;
+      z-index: 100;
+      color: #fff;
+      font-size: 18px;
+      max-width: 500px;
+    }
+
+    .popup.active {
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      background-color: #222;
+      color: #aaa;
+      padding: 10px 20px;
+      border: 1px solid #500;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
+    .tab.active {
+      background-color: #500;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="sidebar">
+    <h2>Разделы</h2>
+    <ul>
+      <li><a href="#classes">Классы</a></li>
+      <li><a href="#races">Расы</a></li>
+      <li><a href="#spells">Заклинания</a></li>
+      <li><a href="#map">Карта мира</a></li>
+      <li><a href="#characters">Ключевые персонажи</a></li>
+      <li><a href="#popup" onclick="togglePopup('popup-info')">О сеттинге</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('classes')">Классы</div>
+      <div class="tab" onclick="openTab('races')">Расы</div>
+      <div class="tab" onclick="openTab('spells')">Заклинания</div>
+    </div>
+
+    <div class="tab-content active section fade-in" id="classes">
+      <h1>Классы</h1>
+      <div class="image-placeholder">[Изображение класса]</div>
+      <p>В сеттинге Tenebris классы тесно связаны с древними силами и тьмой:</p>
+      <ul>
+        <li>Теневой клинок</li>
+        <li>Чёрный жрец</li>
+        <li>Маг-порченник</li>
+      </ul>
+    </div>
+
+    <div class="tab-content section fade-in" id="races">
+      <h1>Расы</h1>
+      <div class="image-placeholder">[Изображение расы]</div>
+      <ul>
+        <li>Эльдрари</li>
+        <li>Драугры</li>
+        <li>Скверносорожденные</li>
+      </ul>
+    </div>
+
+    <div class="tab-content section fade-in" id="spells">
+      <h1>Заклинания</h1>
+      <div class="image-placeholder">[Изображение заклинания]</div>
+      <ul>
+        <li>Поглощение Света</li>
+        <li>Кровавый зов</li>
+        <li>Шепот Пустоты</li>
+      </ul>
+    </div>
+
+    <div class="section fade-in" id="map">
+      <h1>Карта мира</h1>
+      <div class="image-placeholder">[Изображение карты мира]</div>
+      <p>Континент разделён на пять королевств, центром которых является Город Вечного Вечера.</p>
+    </div>
+
+    <div class="section fade-in" id="characters">
+      <h1>Ключевые персонажи</h1>
+      <div class="image-placeholder">[Изображение персонажей]</div>
+      <ul>
+        <li>Король Безгласных</li>
+        <li>Ведьма Алой Башни</li>
+        <li>Лорд Тени</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-info">
+    <h2>О мире Tenebris</h2>
+    <p>Tenebris — это мир вечного сумрака, древних богов и забытой магии. Здесь каждый шаг может стать последним, а союзники — лишь временные спутники в пути к безумию.</p>
+    <button onclick="togglePopup('popup-info')">Закрыть</button>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/24/audio_d8f7cfb395.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    function togglePopup(id) {
+      document.getElementById(id).classList.toggle('active');
+    }
+
+    function openTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelector('.tab[onclick*="' + tabId + '"]').classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

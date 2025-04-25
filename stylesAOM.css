@@ -1,0 +1,566 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #0a0a0a;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  min-height: 100vh;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: -1;
+}
+
+/* //////////////////////////////////////////////////////////////   МЕНЮ */
+.sidebar {
+  /* font-family: 'Cormorant Garamond', serif; */
+  /* font-family: algerian; */
+  font-family: 'Times New Roman', Times, serif;
+  font-variant: small-caps;
+  width: 15%;
+  /* width: 250px; */
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 30px 20px;
+  border-right: 2px solid #600;
+  box-shadow: 2px 0 10px #300;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  text-align: left;
+}
+
+.sidebar h2 {
+  font-size: 26px;
+  color: #a00;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px #000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;  /* Убираем отступ слева у списка */
+  }
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 18px;
+  transition: all 0.3s;
+  display: block;  /* Сделаем ссылки блочными, чтобы они занимали всю ширину */
+}
+
+.sidebar ul li a:hover {
+  color: #f00;
+  padding-left: 10px;
+}
+
+/* /////////////////////////////////////////////////////////////   ОСНОВНАЯ СТРАНИЦА */
+.content {
+  flex: 1;
+  padding: 40px;
+  background: linear-gradient(to right, rgba(10,10,10,0.85), rgba(30,0,0,0.85));
+  box-shadow: inset 0 0 50px #300;
+}
+
+.content h1 {
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.setting-info {
+  font-variant: small-caps;
+  background: radial-gradient(circle at top left, rgba(50, 0, 0, 0.6), rgba(0, 0, 0, 0.95));
+  border: 1px solid #500;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(100, 0, 0, 0.6);
+  animation: shadowPulse 6s infinite;
+  }
+  
+.setting-info h1 {
+  font-size: 28px;
+  color: #d11;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px #000;
+}
+  
+.setting-info p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+  
+.setting-link {
+  display: inline-block;
+  background-color: #600;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #400;
+  transition: all 0.3s ease;
+}
+  
+.setting-link:hover {
+  background-color: #900;
+  box-shadow: 0 0 20px #800;
+}
+  
+/* Пульсирующая тень */
+@keyframes shadowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(100, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(200, 0, 0, 0.9);
+  }
+}
+
+.rules-box {
+    background-color: rgba(50, 0, 0, 0.4);
+    border: 1px solid #800;
+    padding: 20px;
+    border-left: 4px solid #c11;
+    box-shadow: 0 0 15px rgba(100, 0, 0, 0.5);
+    font-size: 17px;
+    line-height: 1.6;
+    color: #eee;
+}
+  
+.rules-box a {
+  color: #d11;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+  
+.rules-box a:hover {
+  color: #fff;
+}  
+
+
+.section {
+  /* Внешний отступ снизу */
+  margin-bottom: 60px;
+  /* Граница снизу */
+  border-bottom: 1px solid #400;
+  padding-bottom: 40px;
+  }
+
+.section h1 {
+  font-variant: small-caps;
+  font-size: 32px;
+  color: #c11;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #500;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px 3px #000;
+}  
+
+.section p, .section ul {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.section ul {
+  margin-left: 20px;
+}
+
+/* //////////////////////////////////////////////////////////   РАСЫ */
+.race-grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+  
+.race-card {
+    display: flex;
+    flex-direction: column; /* размещаем внутренние блоки вертикально */
+    justify-content: space-between; /* распределяем пространство между элементами */
+    background-color: rgba(40, 0, 0, 0.6);
+    border: 1px solid #700;
+    border-left: 4px solid #c11;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(80, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.race-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(225, 0, 0, 0.5);
+}
+  
+.race-card h3 {
+  font-variant: small-caps;
+  color: #d11;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.race-card h4 {
+  font-variant: small-caps;
+  color: #d11;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+  
+.race-card p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.race-bonuses {
+    margin-top: auto; /* сдвигает список бонусов вниз */
+    padding-top: 10px;
+    /* border-top: 1px solid #400; для визуального отделения, опционально */
+}
+
+/* ///////////////////////////////////////////////////   КАРТА */
+.world-map {
+    margin-bottom: 60px;
+    padding: 40px;
+    background-color: rgba(20, 10, 10, 0.7);
+    border: 2px solid #400;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #200;
+    text-align: center;
+  }
+  
+.world-map h2 {
+    font-size: 28px;
+    color: #d22;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #000;
+}
+  
+.world-map p {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.world-map a {
+  color: #d11
+}
+  
+.map-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #500;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #300;
+    transition: transform 0.3s ease;
+}
+  
+.map-image:hover {
+    transform: scale(1.02);
+}
+
+/* /////////////////////////////////////////////////   МАГИЯ */
+.magic-text {
+  background-color: rgba(50, 0, 0, 0.4);
+  border: 1px solid #800;
+  padding: 20px;
+  border-left: 4px solid #c11;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.magic-text a{
+  color: #d11;
+}
+
+.magic-school {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* margin-top: 0px;
+    margin-bottom: 0px; */
+    transition: color 0.3s;
+  }
+  
+  .magic-school h2 {
+    font-size: 24px;
+    margin-left: 10px;
+    color: rgb(216, 32, 32);
+    text-shadow: 1px 1px 3px #000;
+    margin: 0.5%;
+    padding: 0.5%;
+  }
+  
+  .magic-school:hover {
+    color: #f33;
+  }
+  
+  .arrow {
+    display: inline-block;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow.rotate {
+    transform: rotate(90deg);
+  }
+
+.school-description {
+  margin: 0 0 8px;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #e0e0e0;
+  padding: 15px; /* Добавляем внутренний отступ */
+  display: block;
+  /* flex-wrap: wrap;
+  gap: 20px; */
+  margin-left: 30px;
+  border: 1px solid #800;
+  background-color: rgba(50, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(100, 0, 0, 0.6);
+  animation: shadowPulse 6s infinite;
+}
+
+  
+.hidden {
+  display: none;
+}
+  
+.spells-card {
+  position: relative;
+    background-color: rgba(30, 0, 0, 0.8);
+    padding: 20px;
+    border: 2px solid #500;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #300;
+    width: 19%;
+    transition: transform 0.3s;
+  }
+
+  .spell-circle {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    /* background: radial-gradient(circle at center, #f00, #800); */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0 0 8px rgba(255, 0, 0, 0.6); */
+    border: 1px solid #f33;
+  }
+  
+  /* .spells-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #f66;
+  }
+  
+  .spells-card p {
+    color: #ddd;
+  } */
+
+
+/* //////////////////////////////////////////////////////////////////////   КУЛЬТУРЫ */
+
+/* .culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.culture-card {
+  display: flex;
+  flex-direction: column; размещаем внутренние блоки вертикально
+  justify-content: space-between; распределяем пространство между элементами
+  background-color: rgba(40, 0, 0, 0.6);
+  border: 1px solid #700;
+  border-left: 4px solid #c11;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(80, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.culture-card {
+  background-color: rgba(30, 0, 0, 0.85);
+  border: 2px solid #800;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.culture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.culture-card h3 {
+  font-variant: small-caps;
+  font-size: 22px;
+  color: #d11;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.culture-card p {
+  color: #ddd;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.culture-card strong {
+  color: #ddd;
+}
+
+/* Таблица бонусов */
+.bonuses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.bonuses-table th,
+.bonuses-table td {
+  border: 1px solid #700;
+  padding: 10px;
+  text-align: left;
+}
+
+.bonuses-table th {
+  background-color: #400;
+  color: #fdd;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.bonuses-table td {
+  background-color: rgba(50, 0, 0, 0.6);
+  color: #eee;
+}
+
+/* ////////////////////////////////////////////////////////   АВТОР */
+.author-info {
+  background: radial-gradient(circle at top left, rgba(50, 0, 0, 0.6), rgba(0, 0, 0, 0.95));
+  border: 1px solid #500;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  /* box-shadow: 0 0 20px rgba(100, 0, 0, 0.6);
+  animation: shadowPulse 6s infinite; */
+}
+
+/* Немного скруглений */
+.bonuses-table th:first-child {
+  border-top-left-radius: 6px;
+}
+.bonuses-table th:last-child {
+  border-top-right-radius: 6px;
+}
+.bonuses-table tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+.bonuses-table tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+
+
+
+/* ////////////////////////////////////////////////////   БЕЗУМИЕ */
+.madness-section {
+  font-variant: small-caps;
+  background-color: #000; /* чёрно-серый фон */
+  border: 1px solid #aaa; /*светло-серая рамка */
+  padding: 25px 30px;
+  color: #e0e0e0;
+  box-shadow: 0 0 12px #ccc;
+  animation: shadowPulseBlack 6s infinite;
+  line-height: 1.6;
+}
+
+/* Заголовок */
+.madness-title {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 
+    0 0 5px #e0dfdf,
+    0 0 10px #8d8c8c,
+    2px 2px 3px #262626;
+  animation: flash 4s infinite, shake 5s infinite alternate;
+}
+
+
+/* Текст */
+.madness-line {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+
+/* Анимации */
+@keyframes shadowPulseBlack {
+  0% {
+    box-shadow: 0 0 10px #bbb;
+  }
+  50% {
+    box-shadow: 0 0 25px #fff;
+  }
+  100% {
+    box-shadow: 0 0 10px #bbb;
+  }
+}
+
+@keyframes flash {
+  0%, 100% {
+    text-shadow: 0 0 5px #e0dfdf, 0 0 10px #8d8c8c, 2px 2px 3px #262626;
+  }
+  50% {
+    text-shadow: 0 0 20px #d0cfcf, 0 0 30px #707070, 3px 3px 5px #000000;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(1px, -1px) rotate(-0.5deg); }
+  40% { transform: translate(-1px, 2px) rotate(0.5deg); }
+  60% { transform: translate(1px, 1px) rotate(-0.2deg); }
+  80% { transform: translate(-2px, -1px) rotate(0.2deg); }
+  100% { transform: translate(1px, 0) rotate(-0.3deg); }
+}
