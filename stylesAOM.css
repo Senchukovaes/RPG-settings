@@ -4,23 +4,24 @@ body {
   background-size: cover;
   color: #fff;
   display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: -1;
 }
 
 /* //////////////////////////////////////////////////////////////   МЕНЮ */
 .sidebar {
-  /* font-family: 'Cormorant Garamond', serif; */
-  /* font-family: algerian; */
   font-family: 'Times New Roman', Times, serif;
   font-variant: small-caps;
   width: 15%;
@@ -33,6 +34,15 @@ body {
   top: 0;
   height: 100vh;
   text-align: left;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 20px; /* ⬅️ новый отступ */
 }
 
 .sidebar h2 {
@@ -64,6 +74,29 @@ body {
   padding-left: 10px;
 }
 
+.go-to-main-btn {
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-variant: small-caps;
+  background-color: #111;
+  border: 1px solid #700;
+  color: rgb(221, 221, 221);
+  padding: 10px 18px;
+  font-size: 16px;
+  box-shadow: 0 0 5px 1px rgba(80, 0, 0, 0.5);
+  width: 70%;                
+  text-align: center;
+  align-self: center; /* Центрируем кнопку по горизонтали */
+  /* margin-top: auto; */
+  margin: 7% auto 30% auto; /* центрируем и отступаем от контента */
+}
+
+.go-to-main-btn:hover {
+  cursor: pointer;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 5px 4px rgba(255, 0, 0, 0.5);
+}
+
 /* /////////////////////////////////////////////////////////////   ОСНОВНАЯ СТРАНИЦА */
 .content {
   flex: 1;
@@ -73,6 +106,7 @@ body {
 }
 
 .content h1 {
+  color: #d11;
   font-variant: small-caps;
   text-align: center;
 }
@@ -96,7 +130,7 @@ body {
 }
   
 .setting-info p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.7;
   color: #ddd;
   margin-bottom: 20px;
@@ -129,15 +163,16 @@ body {
   }
 }
 
+/* ///////////////////////////////////////////   КНИГА ПРАВИЛ */
 .rules-box {
-    background-color: rgba(50, 0, 0, 0.4);
-    border: 1px solid #800;
-    padding: 20px;
-    border-left: 4px solid #c11;
-    box-shadow: 0 0 15px rgba(100, 0, 0, 0.5);
-    font-size: 17px;
-    line-height: 1.6;
-    color: #eee;
+  background-color: rgba(50, 0, 0, 0.4);
+  border: 1px solid #800;
+  padding: 20px;
+  border-left: 4px solid #c11;
+  box-shadow: 0 0 15px rgba(100, 0, 0, 0.5);
+  font-size: 17px;
+  line-height: 1.6;
+  color: #eee;
 }
   
 .rules-box a {
@@ -221,7 +256,6 @@ body {
 }
   
 .race-card p {
-    font-size: 16px;
     color: #ddd;
     margin-bottom: 10px;
 }
@@ -251,13 +285,17 @@ body {
 }
   
 .world-map p {
-    font-size: 18px;
-    color: #ddd;
-    margin-bottom: 20px;
+  color: #ddd;
+  margin-bottom: 20px;
 }
 
 .world-map a {
-  color: #d11
+  color: #d11;
+  transition: color 0.3s ease;
+}
+
+.world-map a:hover {
+  color: #fff;
 }
   
 .map-image {
@@ -284,8 +322,13 @@ body {
   color: #eee;
 }
 
-.magic-text a{
+.magic-text a {
   color: #d11;
+  transition: color 0.3s ease;
+}
+
+.magic-text a:hover {
+  color: #fff;
 }
 
 .magic-school {
@@ -341,68 +384,7 @@ body {
   display: none;
 }
   
-.spells-card {
-  position: relative;
-    background-color: rgba(30, 0, 0, 0.8);
-    padding: 20px;
-    border: 2px solid #500;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #300;
-    width: 19%;
-    transition: transform 0.3s;
-  }
-
-  .spell-circle {
-    position: absolute;
-    top: 40px;
-    right: 30px;
-    /* background: radial-gradient(circle at center, #f00, #800); */
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0 0 8px rgba(255, 0, 0, 0.6); */
-    border: 1px solid #f33;
-  }
-  
-  /* .spells-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #f66;
-  }
-  
-  .spells-card p {
-    color: #ddd;
-  } */
-
-
 /* //////////////////////////////////////////////////////////////////////   КУЛЬТУРЫ */
-
-/* .culture-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.culture-card {
-  display: flex;
-  flex-direction: column; размещаем внутренние блоки вертикально
-  justify-content: space-between; распределяем пространство между элементами
-  background-color: rgba(40, 0, 0, 0.6);
-  border: 1px solid #700;
-  border-left: 4px solid #c11;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(80, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-} */
 
 .culture-grid {
   display: grid;
@@ -479,6 +461,15 @@ body {
   border-radius: 12px;
   /* box-shadow: 0 0 20px rgba(100, 0, 0, 0.6);
   animation: shadowPulse 6s infinite; */
+}
+
+.contact-links a {
+  color: #d11;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #fff;
 }
 
 /* Немного скруглений */

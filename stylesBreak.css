@@ -1,58 +1,404 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: #0a0a0a;
+    background-size: cover;
     color: #fff;
     display: flex;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: -1;
 }
-
+  
+/* //////////////////////////////////////////////////////////////   МЕНЮ */
 .sidebar {
-    width: 250px;
-    background-color: #111;
-    padding: 30px 20px;
-    border-right: 2px solid rgb(145, 153, 0);
+  /* font-family: 'Cormorant Garamond', serif; */
+  /* font-family: algerian; */
+  font-family: 'Times New Roman', Times, serif;
+  font-variant: small-caps;
+  width: 15%;
+  /* width: 250px; */
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 30px 20px;
+  border-right: 2px solid #b38800;
+  box-shadow: 2px 0 10px #665500;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
 }
 
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+  
 .sidebar h2 {
-    font-size: 24px;
-    color: rgb(145, 153, 0);
-    margin-bottom: 30px;
+  font-size: 26px;
+  color: #ffd700;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px #000;
 }
-
+  
 .sidebar ul {
-    list-style: none;
+  list-style: none;
+  padding-left: 0;  /* Убираем отступ слева у списка */
+}
+  
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 18px;
+    transition: all 0.3s;
+    display: block;  /* Сделаем ссылки блочными, чтобы они занимали всю ширину */
+  }
+  
+  .sidebar ul li a:hover {
+    color: #ffff00;
+    padding-left: 10px;
   }
 
-.sidebar ul li {
-    margin-bottom: 20px;
-}
-
-.sidebar ul li a {
+  .go-to-main-btn {
     text-decoration: none;
-    color: #ddd;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.sidebar ul li a:hover {
-    color: rgb(145, 153, 0);
-}
-
+    font-family: 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    background-color: #111;
+    border: 1px solid #997700;
+    color: rgb(221, 221, 221);
+    padding: 10px 18px;
+    font-size: 16px;
+    box-shadow: 0 0 5px 1px rgba(80, 80, 0, 0.5);
+    width: 70%;                
+    text-align: center;
+    align-self: center; /* Центрируем кнопку по горизонтали */
+    /* margin-top: auto; */
+    margin: 7% auto 30% auto; /* центрируем и отступаем от контента */
+  }
+  
+  .go-to-main-btn:hover {
+    cursor: pointer;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 5px 4px rgba(204, 204, 0, 0.6);
+  }
+  
+/* /////////////////////////////////////////////////////////////   ОСНОВНАЯ СТРАНИЦА */
 .content {
-    flex: 1;
-    padding: 40px;
-    background: linear-gradient(to right, #0a0a0a 60%, #1a1a1a);
+  flex: 1;
+  padding: 40px;
+  background-color: rgba(10,10,0,0.85);
+  /* box-shadow: inset 0 0 50px #665500; */
 }
-
+  
 .content h1 {
-    font-size: 36px;
-    color: rgb(145, 153, 0);
+  color: #ffee66;
+  font-variant: small-caps;
+  text-align: center;
+}
+  
+.setting-info {
+  font-variant: small-caps;
+  background: radial-gradient(circle at top left, rgba(57, 57, 0, 0.6), rgba(0, 0, 0, 0.95));
+  border: 1px solid #997700;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(204, 204, 0, 0.6);
+  animation: shadowPulse 6s infinite;
+}
+    
+.setting-info h1 {
+  font-size: 28px;
+  color: #ffee66;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px #000;
+}
+    
+.setting-info p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #fdfdc5;
+  margin-bottom: 20px;
+}
+    
+  .setting-link {
+    display: inline-block;
+    background-color: #b3ad00;
+    color: #fdfdc5;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #807e00;
+    transition: all 0.3s ease;
+  }
+    
+  .setting-link:hover {
+    background-color: #b3ad00;
+    box-shadow: 0 0 20px #cdcd00;
+  }
+    
+  /* Пульсирующая тень */
+  @keyframes shadowPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(204, 204, 0, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(255, 255, 0, 0.9);
+    }
+  }
+  
+  .section {
+    /* Внешний отступ снизу */
+    margin-bottom: 60px;
+    /* Граница снизу */
+    border-bottom: 1px solid #806600;
+    padding-bottom: 40px;
+    }
+  
+  .section h1 {
+    font-variant: small-caps;
+    font-size: 32px;
+    color: #ffdd33;
     margin-bottom: 20px;
+    border-bottom: 2px solid #997700;
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 3px #000;
+  }
+  
+  .section p, .section ul {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ddd;
+    color: #fdfdc5
+  }
+  
+  .section ul {
+    margin-left: 20px;
+  }
+
+/* ///////////////////////////////////////////////////////////////   КРАТКАЯ ИНФОРМАЦИЯ */
+.short-info-box {
+  background-color: rgba(102, 102, 0, 0.4);
+  border: 1px solid #e6aa00;
+  padding: 20px;
+  border-left: 4px solid #ffdd33;
+  box-shadow: 0 0 15px rgba(100, 100, 0, 0.5);
+  font-size: 17px;
+  line-height: 1.6;
 }
 
-.content p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #ccc;
-    max-width: 800px;
+.short-info-box p {
+  font-size: 20px;
+}
+  
+  /* //////////////////////////////////////////////////////////   ОСОБЕННОСТИ */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: 30px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column; /* размещаем внутренние блоки вертикально */
+  justify-content: space-between; /* распределяем пространство между элементами */
+  background-color: rgba(40, 40, 0, 0.6);
+  border: 1px solid #cc9900;
+  border-left: 4px solid #ffdd33;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(160, 160, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(225, 225, 0, 0.5);
+}
+
+.feature-card h2 {
+  color: #fdfdc5;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.feature-card p {
+  color: #fdfdc5;
+  font-size: 20px;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* ////////////////////////////////////////////////////////   УМЕНИЯ И ЧЕРТЫ */
+.skills-info {
+  border: 1px solid #e6aa00;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(100, 100, 0, 0.5);
+}
+
+.skills-info h2 {
+  color: #fdfdc5;
+  border-bottom: 1px solid #e6aa00;
+}
+
+/* //////////////////////////////////////////////////////////   КАРТЫ ТАРО */
+
+.tarot-info h2 {
+  font-variant: small-caps;
+  color: #ffdd33;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 28px;
+}
+
+.tarot-description {
+  background-color: rgba(102, 102, 0, 0.4);
+  border: 1px solid #e6aa00;
+  padding: 20px;
+  border-left: 4px solid #ffdd33;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(100, 100, 0, 0.5);
+}
+
+.tarot-grid {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: 30px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.tarot-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* распределяем пространство между элементами */
+  background-color: rgba(40, 40, 0, 0.6);
+  border: 1px solid #cc9900;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(160, 160, 0, 0.5);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(225, 225, 0, 0.5);
+}
+
+.tarot-card h3 {
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px #000;
+  font-size:  24px;
+  color: #fdfdc5;
+}
+
+.tarot-card h4 {
+  font-size: 22px;
+  color: #fdfdc5;
+
+}
+
+.tarot-card p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.card-image img {
+  width: 300px; /* Можно изменить под нужный размер */
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 20px 30px;
+  flex: 1;
+}
+
+.card-content h2 {
+  font-size: 24px;
+  color: #ffccff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 6px #aa00ff;
+  border-bottom: 1px solid #660099;
+  padding-bottom: 5px;
+}
+
+.card-content p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.map-image {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #997700;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #665500;
+  transition: transform 0.3s ease;
+}
+
+.map-image:hover {
+  transform: scale(1.02);
+}
+ 
+/* /////////////////////////////////////////////////////////////   ГОРОД. ГЕОГРАФИЯ */
+.map-info {
+  border: 1px solid #e6aa00;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(100, 100, 0, 0.5);
+}
+
+/* //////////////////////////////////////////////////////////////   ЭЛЕКТРООККУЛЬТИЗМ */
+.occultism-info {
+  background-color: rgba(57, 57, 0, 0.6);
+  border: 1px solid #997700;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(204, 204, 0, 0.6);
+  animation: shadowPulse 6s infinite;
+}
+
+  /* ////////////////////////////////////////////////////////   АВТОР */
+.author-info {
+  background: radial-gradient(circle at top left, rgba(57, 57, 0, 0.6), rgba(0, 0, 0, 0.95));
+  border: 1px solid #997700;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  /* box-shadow: 0 0 20px rgba(204, 204, 0, 0.6);
+  animation: shadowPulse 6s infinite; */
+}
+
+.contact-links a {
+  color: #ffee66;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #fff;
 }
