@@ -1,0 +1,649 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #0a0a0a;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  /* min-height: 100vh; */
+  margin: 0;
+  padding: 0;
+}
+  
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: -1;
+}
+  
+/* //////////////////////////////////////////////////////////////   МЕНЮ */
+.sidebar {
+  /* font-family: 'Cormorant Garamond', serif; */
+  /* font-family: algerian; */
+  font-family: 'Times New Roman', Times, serif;
+  font-variant: small-caps;
+  width: 15%;
+  /* width: 250px; */
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 30px 20px;
+  border-right: 2px solid #006;
+  box-shadow: 2px 0 10px #003;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 20px; /* ⬅️ новый отступ */
+}
+  
+.sidebar h2 {
+  font-size: 26px;
+  color: #aacbff;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px #000;
+}
+  
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;  /* Убираем отступ слева у списка */
+  }
+  
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 18px;
+    transition: all 0.3s;
+    display: block;  /* Сделаем ссылки блочными, чтобы они занимали всю ширину */
+  }
+  
+  .sidebar ul li a:hover {
+    color: #4488ff;
+    padding-left: 10px;
+  }
+  
+  .go-to-main-btn {
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    background-color: #111;
+    border: 1px solid rgb(0, 0, 111);
+    color: rgb(221, 221, 221);
+    padding: 10px 18px;
+    font-size: 16px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 80, 0.5);
+    width: 70%;                
+    text-align: center;
+    align-self: center; /* Центрируем кнопку по горизонтали */
+    /* margin-top: auto; */
+    margin: 7% auto 30% auto; /* центрируем и отступаем от контента */
+  }
+  
+  .go-to-main-btn:hover {
+    cursor: pointer;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 5px 4px rgba(9, 22, 100, 0.6);
+  }
+
+  /* /////////////////////////////////////////////////////////////   ОСНОВНАЯ СТРАНИЦА */
+  .content {
+    flex: 1;
+    padding: 40px;
+    /* background: linear-gradient(to right, rgba(10, 10, 10, 0.85), rgba(0, 0, 30, 0.85)); */
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.85), rgba(13, 13, 42, 0.85));
+    box-shadow: inset 0 0 50px #003;
+  }
+  
+.content h1 {
+  color: #aacbff;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.setting-info {
+  font-variant: small-caps;
+  background: radial-gradient(circle at top left, rgba(0, 0, 50, 0.6), rgba(0, 0, 0, 0.95));
+  border: 1px solid #005;
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 22, 100, 0.6);
+  animation: shadowPulse 6s infinite;
+}
+    
+  .setting-info h1 {
+    font-size: 28px;
+    color: #aacbff;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px #000;
+  }
+    
+  .setting-info p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #dde9ff;
+    margin-bottom: 20px;
+  }
+    
+  .setting-link {
+    display: inline-block;
+    background-color: #006;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #004;
+    transition: all 0.3s ease;
+  }
+    
+  .setting-link:hover {
+    background-color: #009;
+    box-shadow: 0 0 20px #000080;
+  }
+    
+  /* Пульсирующая тень */
+@keyframes shadowPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(9, 22, 100, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(0, 40, 200, 0.9);
+    }
+}
+  
+.rules-box {
+    background-color: rgba(0, 9, 50, 0.4);
+    border: 1px solid #000080;
+    padding: 20px;
+    border-left: 4px solid #1133c1;
+    box-shadow: 0 0 15px rgba(0, 22, 100, 0.5);
+    font-size: 17px;
+    line-height: 1.6;
+    color: #dde9ff;
+}
+
+.rules-box p {
+  color: #dde9ff;
+}
+    
+.rules-box a {
+  color: #4488ff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+    
+.rules-box a:hover {
+  color: #fff;
+}  
+  
+  
+.section {
+    /* Внешний отступ снизу */
+    margin-bottom: 60px;
+    /* Граница снизу */
+    border-bottom: 1px solid #004;
+    padding-bottom: 40px;
+    }
+  
+.section h1 {
+    font-variant: small-caps;
+    font-size: 32px;
+    color: #aacbff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #005;
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 3px #000;
+  }  
+  
+.section p, .section ul {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #dde9ff;
+}
+  
+.section ul {
+  margin-left: 20px;
+}
+  
+  /* //////////////////////////////////////////////////////////   РАСЫ */
+.race-grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+    
+.race-card {
+  display: flex;
+  flex-direction: column; /* размещаем внутренние блоки вертикально */
+  justify-content: space-between; /* распределяем пространство между элементами */
+  background-color: rgba(0, 0, 40, 0.6);
+  border: 1px solid #007;
+  border-left: 4px solid #1133c1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 80, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    
+  .race-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 79, 225, 0.5);
+  }
+    
+  .race-card h3 {
+    font-variant: small-caps;
+    color: #aacbff;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .race-card h4 {
+    font-variant: small-caps;
+    color: #aacbff;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+    
+.race-card p {
+    font-size: 18px;
+    color: #dde9ff;
+    margin-bottom: 0px;
+}
+  
+  .race-bonuses {
+      margin-top: auto; /* сдвигает список бонусов вниз */
+      padding-top: 10px;
+      /* border-top: 1px solid #004; для визуального отделения, опционально */
+  }
+  
+  /* ///////////////////////////////////////////////////   КАРТА */
+  .world-map {
+      margin-bottom: 60px;
+      padding: 40px;
+      background-color: rgba(10, 10, 20, 0.7);
+      border: 2px solid #004;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #002;
+      text-align: center;
+    }
+    
+  .world-map h2 {
+      font-size: 28px;
+      color: #22d;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #000;
+  }
+    
+  .world-map p {
+      font-size: 18px;
+      color: #dde9ff;
+      margin-bottom: 20px;
+  }
+  
+  .world-map a {
+    color: #4488ff;
+  }
+    
+  .map-image {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #005;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #003;
+      transition: transform 0.3s ease;
+  }
+    
+  .map-image:hover {
+      transform: scale(1.02);
+  }
+  
+  
+  /* //////////////////////////////////////////////////////////////////////   КУЛЬТУРЫ */
+  
+  /* .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .culture-card {
+    display: flex;
+    flex-direction: column; размещаем внутренние блоки вертикально
+    justify-content: space-between; распределяем пространство между элементами
+    background-color: rgba(40, 0, 0, 0.6);
+    border: 1px solid #007;
+    border-left: 4px solid #1133c1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(80, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  } */
+  
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    padding: 20px;
+  }
+  
+  .culture-card {
+    background-color: rgba(0, 0, 30, 0.85);
+    border: 2px solid #000080;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .culture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 255, 0.5);
+  }
+  
+.culture-card h3 {
+  font-variant: small-caps;
+  font-size: 22px;
+  color: #aacbff;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.culture-card h4 {
+  font-variant: small-caps;
+  font-size: 20px;
+  color: #aacbff;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px #000;
+}
+  
+.culture-card p {
+  color: #dde9ff;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+  
+.culture-card strong {
+  color: #ddd;
+}
+  
+  /* Таблица бонусов */
+  .bonuses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+  }
+  
+  .bonuses-table th,
+  .bonuses-table td {
+    border: 1px solid #007;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .bonuses-table th {
+    background-color: #004;
+    color: #ddf;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .bonuses-table td {
+    background-color: rgba(0, 0, 50, 0.6);
+    color: #dde9ff;
+  }
+
+/* ///////////////////////////////////////////////////////////////////   ГЕОГРАФИЯ */
+.geo-section {
+  background: linear-gradient(145deg, #0a0e2a, #0e1c3f);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(20, 30, 80, 0.6);
+  max-width: 800px;
+  margin: 0 auto;
+  color: #cce3ff;
+  font-family: 'Georgia', serif;
+}
+
+.geo-title {
+  text-align: center;
+  font-size: 32px;
+  color: #84aaff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #112288;
+}
+
+.country-card {
+  background-color: rgba(10, 20, 60, 0.8);
+  border: 2px solid #2255ff;
+  border-left: 5px solid #4488ff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 0 15px rgba(40, 80, 200, 0.3);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.country-card:hover {
+  box-shadow: 0 0 25px rgba(60, 120, 255, 0.6);
+}
+
+.country-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country-header h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #aacbff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 20px;
+  color: #cce3ff;
+}
+
+.arrow.rotate {
+  transform: rotate(90deg);
+}
+
+.country-description {
+  margin-top: 10px;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: #dde8ff;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ////////////////////////////////////////////////////////////////   ТОЧКИ СОПРЯЖЕНИЯ */
+/* .convergence-section {
+  background: linear-gradient(145deg, #0a0a1a, #1a1030);
+  padding: 50px 20px;
+  text-align: center;
+  border-top: 2px solid #225;
+  box-shadow: inset 0 0 50px rgba(120, 150, 255, 0.1);
+} */
+
+/* .convergence-title {
+  color: #bcdfff;
+  font-size: 32px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 8px rgba(150, 200, 255, 0.4);
+} */
+
+.points-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.point-card {
+  width: 66%;
+  padding: 20px 30px;
+  border-radius: 70px;
+  background-color: rgba(0, 0, 40, 0.6);
+  border: 1px solid #000080;
+  /* box-shadow: 0 0 20px rgba(150, 180, 255, 0.5); */
+  animation: shadowPulse 4s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+.point-card:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.point-card:nth-child(even) {
+  align-self: flex-end;
+}
+
+.point-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.point-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.point-card:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.point-card:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.point-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(140, 180, 255, 0.6);
+}
+
+.point-card h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #aaccff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(150, 180, 255, 0.5);
+}
+
+.point-card p {
+  text-align: center;
+  /* font-size: 16px; */
+  line-height: 1.4;
+  color: #dde9ff;
+  margin: 0;
+}
+
+
+/* /////////////////////////////////////////////////////////////   АРТЕФАКТЫ */
+.artifact-section {
+  background: linear-gradient(to bottom, #020230, #000014);
+  padding: 40px 20px;
+  border-top: 2px solid #1133d1;
+  box-shadow: inset 0 0 20px rgba(0, 0, 80, 0.5);
+}
+
+.artifact-title {
+  font-size: 32px;
+  color: #cdd6ff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px #337;
+  font-variant: small-caps;
+}
+
+.artifact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+}
+
+.artifact-card {
+  background-color: rgba(0, 0, 40, 0.6);
+  border: 1px solid #000080;
+  border-left: 4px solid #1133c1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 120, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artifact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(0, 120, 255, 0.6);
+}
+
+.artifact-card h3 {
+  color: #aacbff;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-variant: small-caps;
+}
+
+.artifact-card p {
+  font-size: 17px;
+  color: #dde9ff;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+  
+  /* ////////////////////////////////////////////////////////   АВТОР */
+  .author-info {
+    background: radial-gradient(circle at top left, rgba(0, 0, 50, 0.6), rgba(0, 0, 0, 0.95));
+    border: 1px solid #005;
+    padding: 30px;
+    margin-bottom: 60px;
+    border-radius: 12px;
+    /* box-shadow: 0 0 20px rgba(9, 22, 100, 0.6);
+    animation: shadowPulse 6s infinite; */
+  }
+  
+  /* Немного скруглений */
+  .bonuses-table th:first-child {
+    border-top-left-radius: 6px;
+  }
+  .bonuses-table th:last-child {
+    border-top-right-radius: 6px;
+  }
+  .bonuses-table tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+  }
+  .bonuses-table tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+  }
+  
+
+  
